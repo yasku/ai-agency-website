@@ -1,3 +1,5 @@
+import ServicesSection from './components/ServicesSection';
+
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
@@ -11,7 +13,7 @@ export default function Home() {
       </header>
 
       <main className="flex flex-col gap-[48px] row-start-2 items-center text-center max-w-6xl w-full">
-        <section className="flex flex-col gap-8 items-center">
+        <section id="services" className="flex flex-col gap-8 items-center">
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
             Intelligent Solutions for Modern Businesses
           </h2>
@@ -34,29 +36,8 @@ export default function Home() {
               Our Services
             </a>
           </div>
-        </section>
 
-        <section id="services" className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-          <div className="flex flex-col items-center p-6 rounded-lg border border-black/[.08] dark:border-white/[.145] hover:bg-[#f9f9f9] dark:hover:bg-[#111] transition-colors">
-            <h3 className="text-xl font-semibold mb-3">Custom AI Development</h3>
-            <p className="text-foreground/70 text-center">
-              Tailored AI solutions built specifically for your business needs and industry requirements.
-            </p>
-          </div>
-          
-          <div className="flex flex-col items-center p-6 rounded-lg border border-black/[.08] dark:border-white/[.145] hover:bg-[#f9f9f9] dark:hover:bg-[#111] transition-colors">
-            <h3 className="text-xl font-semibold mb-3">Process Automation</h3>
-            <p className="text-foreground/70 text-center">
-              Streamline operations with intelligent automation that reduces costs and improves efficiency.
-            </p>
-          </div>
-          
-          <div className="flex flex-col items-center p-6 rounded-lg border border-black/[.08] dark:border-white/[.145] hover:bg-[#f9f9f9] dark:hover:bg-[#111] transition-colors">
-            <h3 className="text-xl font-semibold mb-3">Data Intelligence</h3>
-            <p className="text-foreground/70 text-center">
-              Transform raw data into actionable insights with advanced analytics and machine learning.
-            </p>
-          </div>
+          <ServicesSection />
         </section>
 
         <section className="text-center max-w-4xl">
