@@ -234,7 +234,7 @@ export default function ContactForm({ onSubmit, initialData }: ContactFormProps)
         <select
           id="serviceInterest"
           value={formData.serviceInterest || ''}
-          onChange={(e) => handleInputChange('serviceInterest', e.target.value as ContactFormData['serviceInterest'])}
+          onChange={(e) => handleInputChange('serviceInterest', e.target.value || '')}
           className="w-full rounded-lg border border-black/[.08] dark:border-white/[.145] 
                    px-4 py-3 text-foreground bg-background 
                    focus:ring-2 focus:ring-foreground/20 transition-all outline-none"

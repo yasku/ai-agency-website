@@ -1,0 +1,40 @@
+{
+    "contextFileName": "./.gemini/GEMINI.md",
+    "mcpServers": {
+        "run_shell_command": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-run-shell-command"
+            ]
+        },
+        "filesystem": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-filesystem"
+            ]
+        },
+        "sequential-thinking": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking"
+            ]
+        },
+        "google_web_search": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-google-web-search"
+            ]
+        },
+        "brave_web_search": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-brave-web-search"
+            ]
+        }
+    }
+}
