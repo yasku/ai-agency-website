@@ -31,11 +31,11 @@
 
 ---
 
-### Task 2: Enhanced Service Cards with useOptimistic
-- [ ] Create `ServiceCard.tsx` component with interactive expansion
-- [ ] Implement hover effects following existing card patterns
-- [ ] Add "Learn More" functionality with smooth transitions
-- [ ] Use React 19's `useOptimistic` for instant UI updates
+### Task 2: Enhanced Service Cards with useOptimistic ✅
+- [x] Create `ServiceCard.tsx` component with interactive expansion
+- [x] Implement hover effects following existing card patterns
+- [x] Add "Learn More" functionality with smooth transitions
+- [x] Use React 19's `useOptimistic` for instant UI updates
 
 **Design Patterns to Follow:**
 ```tsx
@@ -63,12 +63,12 @@ className="text-foreground/70 text-center" // Service description
 
 ---
 
-### Task 3: Interactive Contact Form with useTransition
-- [ ] Create `ContactForm.tsx` Client Component
-- [ ] Replace mailto link with proper form functionality
-- [ ] Implement form validation with TypeScript
-- [ ] Use React 19's `useTransition` for smooth submission UX
-- [ ] Add loading states and success/error feedback
+### Task 3: Interactive Contact Form with useTransition ✅
+- [x] Create `ContactForm.tsx` Client Component
+- [x] Replace mailto link with proper form functionality
+- [x] Implement form validation with TypeScript
+- [x] Use React 19's `useTransition` for smooth submission UX
+- [x] Add loading states and success/error feedback
 
 **Design Patterns to Follow:**
 ```tsx

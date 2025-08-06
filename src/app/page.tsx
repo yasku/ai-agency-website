@@ -1,4 +1,5 @@
 import ServicesSection from './components/ServicesSection';
+import ContactForm from './components/ContactForm';
 
 export default function Home() {
   return (
@@ -77,18 +78,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Ready to Transform Your Business?</h2>
-          <p className="text-foreground/70 mb-8 max-w-2xl">
-            Contact us today to discuss how AI can revolutionize your operations and drive unprecedented growth.
-          </p>
+        <section id="contact" className="flex flex-col items-center">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Ready to Transform Your Business?</h2>
+            <p className="text-foreground/70 max-w-2xl">
+              Contact us today to discuss how AI can revolutionize your operations and drive unprecedented growth.
+            </p>
+          </div>
           
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-base h-12 px-8 mx-auto w-fit"
-            href="mailto:hello@aiagency.com"
-          >
-            Contact Us Today
-          </a>
+          <ContactForm />
         </section>
       </main>
 
