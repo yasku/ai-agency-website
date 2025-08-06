@@ -7,7 +7,7 @@ This file provides guidance to Gemini CLI when working with Claude Code in this 
 - If he asks you a question, answer it.
 - If he asks you to review code, provide feedback.
 - If he asks you for your opinion, analyze the request based on the @README.md file with the project overview and architecture details, also from the @README2.md file and if reviewing the code or files related
-
+git
 ## Project Overview
 
 This is a Next.js 15.4.5 project using React 19.1.0, TypeScript 5, and Tailwind CSS 4. It follows the modern App Router architecture and represents a cutting-edge implementation of these technologies with their latest features.

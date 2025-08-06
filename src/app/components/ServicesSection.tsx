@@ -20,7 +20,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section id="services" className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
       {AI_SERVICES.map((service) => (
         <ServiceCard
           key={service.id}
@@ -29,6 +29,6 @@ export default function ServicesSection() {
           onToggleExpansion={handleToggleExpansion}
         />
       ))}
-    </section>
+    </div>
   );
 }
