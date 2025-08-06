@@ -95,6 +95,28 @@ export interface AIChatbotProps {
   onLeadCapture?: (data: Partial<ContactFormData>) => void;
 }
 
+// Navigation-specific TypeScript interfaces
+export interface NavigationItem {
+  id: string;
+  label: string;
+  href: string;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface NavigationBarProps {
+  // No specific props needed yet, but defined for future expansion
+}
+
+export interface MobileMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
+  items: NavigationItem[];
+}
+
+export interface LogoProps {
+  size?: 'sm' | 'md' | 'lg';
+}
+
 // Utility types for component state management
 export type LoadingState = 'idle' | 'loading' | 'success' | 'error';
 
