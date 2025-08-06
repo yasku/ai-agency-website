@@ -585,3 +585,224 @@ Use proper contrast utilities:
   Accessible Button
 </button>
 ```
+
+## Next.js App Router Best Practices
+
+This project uses Next.js 15 with the App Router architecture. Here are essential best practices to follow:
+
+### Server vs Client Component Patterns
+
+**Server Components (Default):**
+- Use for data fetching, static content, and performance-critical operations
+- Run on the server, reducing client bundle size
+
+```javascript
+// Server Component - async data fetching
+export default async function BlogPost({ params }) {
+  const { slug } = await params;
+  const post = await getPost(slug); // Direct server-side data fetching
+  
+  return (
+    <div>
+      <h1>{post.title}</h1>
+      <ClientLikeButton initialLikes={post.likes} />
+    </div>
+  );
+}
+```
+
+**Client Components:**
+- Use `'use client'` for interactivity, state, and browser APIs
+- Keep them focused and minimal
+
+```javascript
+'use client'
+
+import { useState } from 'react';
+
+export default function ClientLikeButton({ initialLikes }) {
+  const [likes, setLikes] = useState(initialLikes);
+  
+  return (
+    <button onClick={() => setLikes(likes + 1)}>
+      ❤️ {likes} likes
+    </button>
+  );
+}
+```
+
+### Layout and Page Organization
+
+**Root Layout (Required):**
+```javascript
+// app/layout.tsx
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}
+```
+
+**Nested Layouts:**
+```javascript
+// app/blog/layout.tsx
+export default function BlogLayout({ children }) {
+  return (
+    <div className="blog-container">
+      <BlogSidebar />
+      <main>{children}</main>
+    </div>
+  );
+}
+```
+
+### Data Fetching Best Practices
+
+**Server-side Data Fetching:**
+```javascript
+// Automatic caching by default
+async function getStaticData() {
+  const res = await fetch('https://api.example.com/data');
+  return res.json();
+}
+
+// Force dynamic (no cache)
+async function getDynamicData() {
+  const res = await fetch('https://api.example.com/data', { 
+    cache: 'no-store' 
+  });
+  return res.json();
+}
+```
+
+**Parallel Data Fetching:**
+```javascript
+export default async function Page() {
+  // Fetch data in parallel
+  const [posts, categories] = await Promise.all([
+    getPosts(),
+    getCategories()
+  ]);
+  
+  return <BlogContent posts={posts} categories={categories} />;
+}
+```
+
+### Dynamic Routing Patterns
+
+**Dynamic Segments:**
+```javascript
+// app/blog/[slug]/page.tsx
+export default async function PostPage({ params }) {
+  const { slug } = await params;
+  const post = await getPost(slug);
+  
+  return <PostContent post={post} />;
+}
+
+// Generate static params
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map(post => ({ slug: post.slug }));
+}
+```
+
+**Catch-all Routes:**
+```javascript
+// app/docs/[...segments]/page.tsx
+export default async function DocsPage({ params }) {
+  const { segments } = await params;
+  const path = segments.join('/');
+  
+  return <DocsContent path={path} />;
+}
+```
+
+### Performance Optimization
+
+**Bundle Optimization:**
+- Keep Client Components minimal
+- Use Server Components for static content
+- Wrap third-party components
+
+```javascript
+// Wrapper for third-party client components
+'use client'
+import { ExternalLibrary } from 'external-lib';
+export default ExternalLibrary;
+```
+
+**Strategic Component Boundaries:**
+```javascript
+// Server Component layout with selective client components
+export default function Layout({ children }) {
+  return (
+    <div>
+      <StaticHeader />           {/* Server Component */}
+      <InteractiveSearch />      {/* Client Component */}
+      <main>{children}</main>    {/* Server Component */}
+    </div>
+  );
+}
+```
+
+**Data Passing Patterns:**
+```javascript
+// Pass minimal data from Server to Client
+export default async function Page() {
+  const fullUserData = await getUser();
+  
+  // Only pass what the client needs
+  return <UserProfile 
+    name={fullUserData.name} 
+    avatar={fullUserData.avatar}
+  />;
+}
+```
+
+### Navigation Best Practices
+
+**Client-side Navigation:**
+```javascript
+'use client'
+import { useRouter, usePathname } from 'next/navigation';
+
+export default function NavigationComponent() {
+  const router = useRouter();
+  const pathname = usePathname();
+  
+  const handleNavigation = () => {
+    router.push('/dashboard');
+  };
+  
+  return (
+    <nav>
+      <button 
+        onClick={handleNavigation}
+        className={pathname === '/dashboard' ? 'active' : ''}
+      >
+        Dashboard
+      </button>
+    </nav>
+  );
+}
+```
+
+**Link Prefetching:**
+```javascript
+import Link from 'next/link';
+
+export default function Navigation() {
+  return (
+    <Link href="/dashboard" prefetch={true}>
+      Dashboard (prefetched)
+    </Link>
+  );
+}
+```
