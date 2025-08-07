@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link';
 import ServiceHero from './components/ServiceHero';
 import ServiceGrid from './components/ServiceGrid';
@@ -6,6 +8,7 @@ import ContactForm from '../components/ContactForm';
 import { DETAILED_SERVICES } from '@/lib/services-data';
 
 export default function ServicesPage() {
+
   return (
     <div className="font-sans grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <header className="row-start-1 text-center">

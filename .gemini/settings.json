@@ -1,18 +1,12 @@
 {
-    "contextFileName": "./.gemini/GEMINI.md",
+    "contextFileName": ["GEMINI.md","README.md", "README2.md"],
     "mcpServers": {
-        "run_shell_command": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "@modelcontextprotocol/server-run-shell-command"
-            ]
-        },
         "filesystem": {
             "command": "npx",
             "args": [
                 "-y",
-                "@modelcontextprotocol/server-filesystem"
+                "@modelcontextprotocol/server-filesystem",
+                "/home/yasku/proyectos/nextjs-project"
             ]
         },
         "sequential-thinking": {
@@ -27,13 +21,6 @@
             "args": [
                 "-y",
                 "@modelcontextprotocol/server-google-web-search"
-            ]
-        },
-        "brave_web_search": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "@modelcontextprotocol/server-brave-web-search"
             ]
         }
     }

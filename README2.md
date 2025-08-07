@@ -104,17 +104,30 @@ className="text-foreground/70 max-w-3xl text-base sm:text-lg leading-relaxed"
 ## 📁 Project Structure
 
 ```
-ai-agency/
-├── src/
-│   └── app/                 # App Router structure
-│       ├── layout.tsx       # Root layout with font optimization
-│       ├── page.tsx         # Main landing page
-│       └── globals.css      # Tailwind + theme configuration
-├── public/                  # Static assets (logos, icons)
-├── package.json            # Dependencies and scripts
-├── tailwind.config.ts      # Tailwind CSS configuration
-├── next.config.ts          # Next.js configuration
-└── tsconfig.json          # TypeScript configuration
+src/
+├── app/
+│   ├── layout.tsx                  # Root layout component, sets up fonts and global styles.
+│   ├── page.tsx                    # Home page, integrates ServicesSection and ContactForm.
+│   ├── globals.css                 # Global CSS styles, Tailwind CSS imports, theme variables, and custom animations.
+│   ├── components/                 # Shared UI components used across the application.
+│   │   ├── ContactForm.tsx         # Client Component: Handles contact form logic, state, and validation.
+│   │   ├── Logo.tsx                # Component: Displays the "AI Agency" logo with size variations.
+│   │   ├── NavigationBar.tsx       # Client Component: Main navigation bar, includes Logo and NavigationMenu.
+│   │   ├── NavigationMenu.tsx      # Component: Renders navigation links.
+│   │   ├── README.md               # Documentation for components within this directory.
+│   │   ├── ServiceCard.tsx         # Client Component: Displays individual service details with expand/collapse functionality.
+│   │   └── ServicesSection.tsx     # Client Component: Renders a grid of ServiceCard components.
+│   └── services/                   # Components and pages specific to the services section.
+│       ├── page.tsx                # Services page, integrates ServiceHero, ServiceGrid, ProcessOverview, and ContactForm.
+│       └── components/             # Components specific to the services page.
+│           ├── DetailedServiceCard.tsx # Client Component: Displays detailed service information with advanced styling and animations.
+│           ├── ProcessOverview.tsx # Component: Visualizes the 6-step development process.
+│           ├── ServiceGrid.tsx     # Client Component: Renders a grid of DetailedServiceCard components.
+│           └── ServiceHero.tsx     # Component: Hero section for the services page.
+└── lib/                            # Utility files, constants, and TypeScript type definitions.
+    ├── constants.ts                # Defines various application-wide constants (e.g., AI_SERVICES, VALIDATION_RULES).
+    ├── services-data.ts            # Defines detailed service data and the DetailedServiceData interface.
+    └── types.ts                    # Contains all TypeScript interfaces for data structures and component props.
 ```
 
 ## 🛠️ Development Commands
