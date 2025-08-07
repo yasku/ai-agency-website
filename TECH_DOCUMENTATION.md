@@ -62,16 +62,87 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ```
 nextjs-project/
-├── src/
-│   └── app/                 # App Router pages and layouts
-│       ├── layout.tsx       # Root layout component
-│       ├── page.tsx         # Home page
-│       └── globals.css      # Global styles
-├── public/                  # Static assets
-├── package.json            # Dependencies and scripts
-├── tailwind.config.ts      # Tailwind CSS configuration
-├── next.config.ts          # Next.js configuration
-└── tsconfig.json          # TypeScript configuration
+├───.geminiignore
+├───.gitignore
+├───CHANGELOG.md
+├───CLAUDE.md
+├───eslint.config.mjs
+├───GEMINI.md
+├───next.config.ts
+├───package-lock.json
+├───package.json
+├───postcss.config.mjs
+├───README.md
+├───TECH_DOCUMENTATION.md
+├───TODO.md
+├───tsconfig.json
+├───.claude/
+│   ├───settings.local.json
+│   └───commands/
+│       ├───session-current.md
+│       ├───session-current.md:Zone.Identifier
+│       ├───session-end.md
+│       ├───session-end.md:Zone.Identifier
+│       ├───session-help.md
+│       ├───session-help.md:Zone.Identifier
+│       ├───session-list.md
+│       ├───session-list.md:Zone.Identifier
+│       ├───session-start.md
+│       ├───session-start.md:Zone.Identifier
+│       ├───session-update.md
+│       └───session-update.md:Zone.Identifier
+├───.gemini/
+│   └───settings.json
+├───.git/...
+├───.next/
+│   ├───build/...
+│   ├───cache/...
+│   ├───diagnostics/...
+│   ├───server/...
+│   ├───static/...
+│   └───types/...
+├───node_modules/...
+├───public/
+│   ├───file.svg
+│   ├───globe.svg
+│   ├───next.svg
+│   ├───vercel.svg
+│   └───window.svg
+├───sessions/
+│   └───.current-session
+└───src/
+    ├───app/
+    │   ├───favicon.ico
+    │   ├───globals.css
+    │   ├───layout.tsx
+    │   ├───page.tsx
+    │   ├───components/
+    │   │   ├───ContactForm.tsx
+    │   │   ├───HamburgerIcon.tsx
+    │   │   ├───Logo.tsx
+    │   │   ├───MobileMenu.tsx
+    │   │   ├───MobileMenuItem.tsx
+    │   │   ├───NavigationBar.tsx
+    │   │   ├───NavigationMenu.tsx
+    │   │   ├───NavigationMenuItem.tsx
+    │   │   ├───README.md
+    │   │   ├───ServiceCard.tsx
+    │   │   ├───ServicesSection.tsx
+    │   │   └───hooks/
+    │   │       ├───useActiveRoute.tsx
+    │   │       ├───useScrollEffect.tsx
+    │   │       └───useSmoothScroll.tsx
+    │   └───services/
+    │       ├───page.tsx
+    │       └───components/
+    │           ├───DetailedServiceCard.tsx
+    │           ├───ProcessOverview.tsx
+    │           ├───ServiceGrid.tsx
+    │           └───ServiceHero.tsx
+    └───lib/
+        ├───constants.ts
+        ├───services-data.ts
+        └───types.ts
 ```
 
 ## Features
