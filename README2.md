@@ -9,11 +9,22 @@
 
 **AI Agency** is a modern, high-performance landing page showcasing intelligent AI solutions for businesses. Built with the latest web technologies and following cutting-edge design patterns, this project demonstrates expertise in custom AI development, process automation, and data intelligence.
 
-### 🎯 Live Features
-- **Hero Section**: Compelling branding with gradient text effects and clear value proposition
-- **Services Showcase**: Three core AI services with interactive hover effects
-- **Feature Highlights**: Key differentiators and competitive advantages
-- **Contact Integration**: Direct engagement with professional call-to-actions
+### 🎯 Key Features & Functionality
+- **Hero Section**: Compelling branding with gradient text effects and clear value proposition.
+- **Services Showcase (Home Page)**: Three core AI services with interactive hover effects and expandable details using React 19's `useOptimistic` and `useTransition` hooks.
+- **Comprehensive Services Page (`/services`)**: A dedicated page showcasing a detailed portfolio of AI services, including:
+  - **ServiceHero Component**: Professional hero section with gradient text.
+  - **ServiceGrid Component**: Responsive grid layout for detailed service cards.
+  - **DetailedServiceCard Component**: Advanced interactive cards with 3D tilt hover effects, service-specific gradient glows, expandable content (case studies, pricing, technologies), and professional loading states.
+  - **ProcessOverview Component**: Visualizes our 6-step AI implementation methodology.
+- **Feature Highlights**: Key differentiators and competitive advantages.
+- **Contact Integration**: Direct engagement with a comprehensive contact form featuring client-side validation, loading states, and smooth submission UX using React 19's `useTransition`.
+- **Navigation Bar**: Sticky navigation with responsive design, mobile menu, active link highlighting, scroll-based backdrop effects, and smooth scrolling to sections.
+- **Accessibility**: Enhanced keyboard navigation, focus management, and screen reader support with proper ARIA attributes.
+- **Performance Optimizations**: Strategic use of Server and Client Components, Next.js font optimization, and Turbopack for fast builds.
+- **Responsive Design**: Mobile-first approach with `sm:` breakpoints ensuring optimal viewing across all devices.
+- **Dark Mode**: Automatic theme switching based on user preference.
+- **SEO Optimized**: Proper metadata and semantic HTML structure.
 
 ## 📋 Tech Stack
 
@@ -114,9 +125,17 @@ src/
 │   │   ├── Logo.tsx                # Component: Displays the "AI Agency" logo with size variations.
 │   │   ├── NavigationBar.tsx       # Client Component: Main navigation bar, includes Logo and NavigationMenu.
 │   │   ├── NavigationMenu.tsx      # Component: Renders navigation links.
+│   │   ├── NavigationMenuItem.tsx  # Component: Renders individual desktop navigation links.
+│   │   ├── HamburgerIcon.tsx       # Client Component: Animated hamburger icon for mobile menu.
+│   │   ├── MobileMenu.tsx          # Client Component: Full-screen overlay for mobile navigation.
+│   │   ├── MobileMenuItem.tsx      # Client Component: Individual navigation link within the mobile menu.
 │   │   ├── README.md               # Documentation for components within this directory.
 │   │   ├── ServiceCard.tsx         # Client Component: Displays individual service details with expand/collapse functionality.
-│   │   └── ServicesSection.tsx     # Client Component: Renders a grid of ServiceCard components.
+│   │   ├── ServicesSection.tsx     # Client Component: Renders a grid of ServiceCard components.
+│   │   └── hooks/                  # Custom React Hooks for shared logic.
+│   │       ├── useActiveRoute.tsx  # Custom hook: Determines if a navigation link is active.
+│   │       ├── useScrollEffect.tsx # Custom hook: Tracks scroll position and direction.
+│   │       └── useSmoothScroll.tsx # Custom hook: Provides smooth scrolling functionality.
 │   └── services/                   # Components and pages specific to the services section.
 │       ├── page.tsx                # Services page, integrates ServiceHero, ServiceGrid, ProcessOverview, and ContactForm.
 │       └── components/             # Components specific to the services page.
