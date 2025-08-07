@@ -79,6 +79,9 @@ To act as an expert developer, guiding users through the entire lifecycle of web
 *   **`sequential-thinking`**: Critical for planning and executing multi-step development tasks, such as setting up a new project, implementing a complex feature, or refactoring code.
 *   **`google_web_search` / `brave_web_search`**: Useful for researching up-to-date information, finding documentation for libraries, and discovering solutions to specific technical challenges.
 *  **Context7**: Usefull to access documentation and resources related to the project, such as design systems, coding standards, and best practices or for searching for specific information about Next.js, React, TypeScript, and Tailwind CSS.
+*   **TECH_DOCUMENTATION.md**: This file contains detailed technical documentation for the project, including:
+    *   **Frameworks**: Next.js 15 (App Router), React 19, TypeScript 5, Tailwind CSS 4.
+    *   **Best Practices**: React 19 hooks (`useOptimistic`, `use`, `useTransition`), Tailwind CSS 4 CSS-first configuration, Server/Client Component patterns, performance optimizations, and accessibility guidelines. This document serves as the primary reference for all development within this project.
 
 ## 4. Output Specification
 

@@ -1,808 +1,250 @@
-# nextjs-project
+# AI Agency - Intelligent Solutions for Your Business
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <h3>Transform your business with cutting-edge AI solutions</h3>
+  <p>Built with Next.js 15, React 19, and Tailwind CSS 4</p>
+</div>
 
-## Tech Stack
+## 🚀 Project Overview
 
-- **Next.js**: 15.4.5 (with App Router)
-- **React**: 19.1.0
-- **TypeScript**: ^5
-- **Tailwind CSS**: ^4
-- **ESLint**: ^9
+**AI Agency** is a modern, high-performance landing page showcasing intelligent AI solutions for businesses. Built with the latest web technologies and following cutting-edge design patterns, this project demonstrates expertise in custom AI development, process automation, and data intelligence.
 
-## Getting Started
+### 🎯 Key Features & Functionality
+- **Hero Section**: Compelling branding with gradient text effects and clear value proposition.
+- **Services Showcase (Home Page)**: Three core AI services with interactive hover effects and expandable details using React 19's `useOptimistic` and `useTransition` hooks.
+- **Comprehensive Services Page (`/services`)**: A dedicated page showcasing a detailed portfolio of AI services, including:
+  - **ServiceHero Component**: Professional hero section with gradient text.
+  - **ServiceGrid Component**: Responsive grid layout for detailed service cards.
+  - **DetailedServiceCard Component**: Advanced interactive cards with 3D tilt hover effects, service-specific gradient glows, expandable content (case studies, pricing, technologies), and professional loading states.
+  - **ProcessOverview Component**: Visualizes our 6-step AI implementation methodology.
+- **Feature Highlights**: Key differentiators and competitive advantages.
+- **Contact Integration**: Direct engagement with a comprehensive contact form featuring client-side validation, loading states, and smooth submission UX using React 19's `useTransition`.
+- **Navigation Bar**: Sticky navigation with responsive design, mobile menu, active link highlighting, scroll-based backdrop effects, and smooth scrolling to sections.
+- **Accessibility**: Enhanced keyboard navigation, focus management, and screen reader support with proper ARIA attributes.
+- **Performance Optimizations**: Strategic use of Server and Client Components, Next.js font optimization, and Turbopack for fast builds.
+- **Responsive Design**: Mobile-first approach with `sm:` breakpoints ensuring optimal viewing across all devices.
+- **Dark Mode**: Automatic theme switching based on user preference.
+- **SEO Optimized**: Proper metadata and semantic HTML structure.
 
-First, install dependencies:
+## 📋 Tech Stack
 
+- **Framework**: [Next.js 15.4.5](https://nextjs.org) with App Router
+- **React**: [19.1.0](https://react.dev) with latest hooks and features
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com) with CSS-first configuration
+- **TypeScript**: [^5](https://www.typescriptlang.org) with strict mode
+- **Linting**: [ESLint ^9](https://eslint.org) with Next.js rules
+- **Build Tool**: [Turbopack](https://turbo.build/pack) for fast development builds
+
+## 🎨 Design System & UI/UX Patterns
+
+### Color Palette
+```css
+/* Light Mode */
+--background: #ffffff
+--foreground: #171717
+
+/* Dark Mode */
+--background: #0a0a0a  
+--foreground: #ededed
+```
+
+### Typography Hierarchy
+- **Primary Font**: Geist Sans (`var(--font-geist-sans)`)
+- **Monospace Font**: Geist Mono (`var(--font-geist-mono)`)
+- **Font Optimization**: Next.js font loading with variable fonts
+
+### Layout Patterns
+- **Grid System**: `grid-rows-[auto_1fr_auto]` for structured layouts
+- **Responsive Design**: Mobile-first with `sm:` breakpoints
+- **Content Centering**: `items-center justify-items-center`
+- **Semantic Spacing**: Consistent `gap-[32px]` and `gap-[48px]` patterns
+
+### Component Design Patterns
+
+#### Buttons
+```tsx
+// Primary CTA Button
+className="rounded-full border border-solid border-transparent transition-colors 
+          flex items-center justify-center bg-foreground text-background gap-2 
+          hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base 
+          h-10 sm:h-12 px-4 sm:px-5"
+
+// Secondary Button
+className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
+          transition-colors flex items-center justify-center hover:bg-[#f2f2f2] 
+          dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base 
+          h-10 sm:h-12 px-4 sm:px-5"
+```
+
+#### Cards & Containers
+```tsx
+// Service Cards
+className="flex flex-col items-center p-6 rounded-lg border border-black/[.08] 
+          dark:border-white/[.145] hover:bg-[#f9f9f9] dark:hover:bg-[#111] transition-colors"
+
+// Feature List Items
+className="flex items-start gap-3"
+className="w-2 h-2 rounded-full bg-foreground mt-2 flex-shrink-0" // Bullet points
+```
+
+#### Typography Styles
+```tsx
+// Main Heading
+className="text-4xl sm:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground 
+          to-foreground/70 bg-clip-text text-transparent"
+
+// Section Headings
+className="text-2xl sm:text-3xl font-semibold mb-4"
+
+// Body Text
+className="text-foreground/70 max-w-3xl text-base sm:text-lg leading-relaxed"
+```
+
+### Color Usage Guidelines
+- **Primary Actions**: `bg-foreground text-background`
+- **Borders**: `border-black/[.08] dark:border-white/[.145]`
+- **Hover States**: `hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a]`
+- **Text Hierarchy**: `text-foreground`, `text-foreground/80`, `text-foreground/70`
+
+### Responsive Design Strategy
+- **Mobile-First**: Base styles for mobile devices
+- **Breakpoint**: `sm:` for screens ≥640px
+- **Layout Adaptation**: `flex-col sm:flex-row` patterns
+- **Text Scaling**: `text-lg sm:text-xl` responsive typography
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx                  # Root layout component, sets up fonts and global styles.
+│   ├── page.tsx                    # Home page, integrates ServicesSection and ContactForm.
+│   ├── globals.css                 # Global CSS styles, Tailwind CSS imports, theme variables, and custom animations.
+│   ├── components/                 # Shared UI components used across the application.
+│   │   ├── ContactForm.tsx         # Client Component: Handles contact form logic, state, and validation.
+│   │   ├── Logo.tsx                # Component: Displays the "AI Agency" logo with size variations.
+│   │   ├── NavigationBar.tsx       # Client Component: Main navigation bar, includes Logo and NavigationMenu.
+│   │   ├── NavigationMenu.tsx      # Component: Renders navigation links.
+│   │   ├── NavigationMenuItem.tsx  # Component: Renders individual desktop navigation links.
+│   │   ├── HamburgerIcon.tsx       # Client Component: Animated hamburger icon for mobile menu.
+│   │   ├── MobileMenu.tsx          # Client Component: Full-screen overlay for mobile navigation.
+│   │   ├── MobileMenuItem.tsx      # Client Component: Individual navigation link within the mobile menu.
+│   │   ├── README.md               # Documentation for components within this directory.
+│   │   ├── ServiceCard.tsx         # Client Component: Displays individual service details with expand/collapse functionality.
+│   │   ├── ServicesSection.tsx     # Client Component: Renders a grid of ServiceCard components.
+│   │   └── hooks/                  # Custom React Hooks for shared logic.
+│   │       ├── useActiveRoute.tsx  # Custom hook: Determines if a navigation link is active.
+│   │       ├── useScrollEffect.tsx # Custom hook: Tracks scroll position and direction.
+│   │       └── useSmoothScroll.tsx # Custom hook: Provides smooth scrolling functionality.
+│   └── services/                   # Components and pages specific to the services section.
+│       ├── page.tsx                # Services page, integrates ServiceHero, ServiceGrid, ProcessOverview, and ContactForm.
+│       └── components/             # Components specific to the services page.
+│           ├── DetailedServiceCard.tsx # Client Component: Displays detailed service information with advanced styling and animations.
+│           ├── ProcessOverview.tsx # Component: Visualizes the 6-step development process.
+│           ├── ServiceGrid.tsx     # Client Component: Renders a grid of DetailedServiceCard components.
+│           └── ServiceHero.tsx     # Component: Hero section for the services page.
+└── lib/                            # Utility files, constants, and TypeScript type definitions.
+    ├── constants.ts                # Defines various application-wide constants (e.g., AI_SERVICES, VALIDATION_RULES).
+    ├── services-data.ts            # Defines detailed service data and the DetailedServiceData interface.
+    └── types.ts                    # Contains all TypeScript interfaces for data structures and component props.
+```
+
+## 🛠️ Development Commands
+
+### Core Development
 ```bash
-npm install
+npm install          # Install dependencies
+npm run dev         # Start development server (http://localhost:3000)
+npm run build       # Build for production
+npm run start       # Start production server
 ```
 
-Then, run the development server:
-
+### Quality Assurance
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint        # Run ESLint code quality checks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Available Scripts
-
-- `npm run dev` - Starts the development server with Turbopack
-- `npm run build` - Builds the application for production
-- `npm run start` - Starts the production server
-- `npm run lint` - Runs ESLint to check code quality
-
-## Project Structure
-
-```
-nextjs-project/
-├── src/
-│   └── app/                 # App Router pages and layouts
-│       ├── layout.tsx       # Root layout component
-│       ├── page.tsx         # Home page
-│       └── globals.css      # Global styles
-├── public/                  # Static assets
-├── package.json            # Dependencies and scripts
-├── tailwind.config.ts      # Tailwind CSS configuration
-├── next.config.ts          # Next.js configuration
-└── tsconfig.json          # TypeScript configuration
-```
-
-## Features
-
-- ⚡ Next.js 15 with App Router for modern routing
-- ⚛️ React 19 for latest React features
-- 🎨 Tailwind CSS 4 for utility-first styling
-- 📝 TypeScript for type safety
-- 🔍 ESLint for code quality
-- 🚀 Turbopack for fast development builds
-
-## React 19 Best Practices
-
-This project leverages React 19's cutting-edge features. Here are the key best practices to follow:
-
-### New React 19 Hooks
-
-#### useOptimistic - Optimistic UI Updates
-```javascript
-import { useOptimistic } from 'react';
-
-function UpdateName({ currentName, onUpdateName }) {
-  const [optimisticName, setOptimisticName] = useOptimistic(currentName);
-
-  const submitAction = async formData => {
-    const newName = formData.get("name");
-    setOptimisticName(newName); // Immediately show new name
-    const updatedName = await updateName(newName);
-    onUpdateName(updatedName);
-  };
-
-  return (
-    <form action={submitAction}>
-      <p>Your name is: {optimisticName}</p>
-      <input type="text" name="name" disabled={currentName !== optimisticName} />
-    </form>
-  );
-}
-```
-
-#### use API - Conditional Context Consumption
-```javascript
-import { use } from 'react';
-
-function Heading({ children }) {
-  if (children == null) {
-    return null;
-  }
-  
-  // Can be called after early returns (unlike useContext)
-  const theme = use(ThemeContext);
-  return <h1 style={{ color: theme.color }}>{children}</h1>;
-}
-```
-
-### Performance Optimization
-
-#### useMemo for Expensive Calculations
-```javascript
-function TodoList({ todos, tab }) {
-  const visibleTodos = useMemo(
-    () => filterTodos(todos, tab),
-    [todos, tab] // Only recalculate when dependencies change
-  );
-  
-  return (
-    <ul>
-      {visibleTodos.map(todo => (
-        <li key={todo.id}>{todo.text}</li>
-      ))}
-    </ul>
-  );
-}
-```
-
-#### useCallback for Stable Function References
-```javascript
-function ProductPage({ productId, referrer }) {
-  const handleSubmit = useCallback((orderDetails) => {
-    post('/product/' + productId + '/buy', {
-      referrer,
-      orderDetails,
-    });
-  }, [productId, referrer]); // Only recreate when dependencies change
-
-  return <ShippingForm onSubmit={handleSubmit} />;
-}
-```
-
-#### useTransition for Better UX
-```javascript
-function UpdateName() {
-  const [name, setName] = useState("");
-  const [isPending, startTransition] = useTransition();
-
-  const handleSubmit = () => {
-    startTransition(async () => {
-      const error = await updateName(name);
-      if (error) {
-        setError(error);
-        return;
-      }
-      redirect("/path");
-    });
-  };
-
-  return (
-    <button onClick={handleSubmit} disabled={isPending}>
-      {isPending ? "Updating..." : "Update"}
-    </button>
-  );
-}
-```
-
-### Hook Rules & Best Practices
-
-1. **Always call Hooks at the top level** - Never inside loops, conditions, or nested functions
-2. **Only call Hooks from React functions** - Components or custom Hooks
-3. **Custom Hooks should start with 'use'** - For proper linting and conventions
-4. **Use dependency arrays correctly** - Include all reactive values in useEffect/useMemo/useCallback
-
-```javascript
-// ✅ Good: Top-level Hook usage
-function MyComponent() {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    // Effect logic here
-  }, [count]); // Include dependencies
-}
-
-// ❌ Bad: Conditional Hook usage
-function BadComponent({ condition }) {
-  if (condition) {
-    const [state, setState] = useState(0); // Violates Rules of Hooks
-  }
-}
-```
-
-### Component Purity
-
-Components and Hooks must be pure functions:
-
-```javascript
-// ✅ Good: Pure component
-function TodoItem({ todo, onToggle }) {
-  return (
-    <li onClick={() => onToggle(todo.id)}>
-      {todo.completed ? <s>{todo.text}</s> : todo.text}
-    </li>
-  );
-}
-
-// ❌ Bad: Side effects during render
-function BadComponent() {
-  // Don't mutate external variables during render
-  document.title = "Bad Practice"; 
-  return <div>Content</div>;
-}
-```
-
-### Custom Hooks Pattern
-
-Extract reusable logic into custom Hooks:
-
-```javascript
-// Custom Hook for online status
-function useOnlineStatus() {
-  const [isOnline, setIsOnline] = useState(true);
-  
-  useEffect(() => {
-    function handleOnline() { setIsOnline(true); }
-    function handleOffline() { setIsOnline(false); }
-    
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-    
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, []);
-  
-  return isOnline;
-}
-
-// Usage in components
-function SaveButton() {
-  const isOnline = useOnlineStatus();
-  
-  return (
-    <button disabled={!isOnline}>
-      {isOnline ? 'Save progress' : 'Reconnecting...'}
-    </button>
-  );
-}
-```
-
-### TypeScript Integration
-
-Improved type inference in React 19:
-
-```typescript
-// ✅ React 19: No explicit type needed
-const [state, dispatch] = useReducer(reducer);
-
-// ✅ Better custom Hook typing
-function useData<T>(url: string): T | null {
-  const [data, setData] = useState<T | null>(null);
-  // Implementation...
-  return data;
-}
-```
-
-### Resource Loading Optimization
-
-Use React 19's resource preloading:
-
-```javascript
-function MyApp() {
-  // These will be intelligently prioritized
-  preinit('https://.../script.js', { as: 'script' });
-  prefetchDNS('https://...');
-  preconnect('https://...');
-  preload('https://.../font.woff', { as: 'font' });
-  
-  return <div>App content</div>;
-}
-```
-
-## Tailwind CSS 4 Best Practices
-
-This project uses Tailwind CSS 4, which introduces revolutionary changes to how we configure and use Tailwind. Here are the key best practices:
-
-### CSS-First Configuration with @theme
-
-Tailwind CSS 4 moves away from `tailwind.config.js` to CSS-based configuration:
-
-```css
-/* src/app/globals.css */
-@import "tailwindcss";
-
-@theme {
-  --font-display: "Satoshi", "sans-serif";
-  --font-body: "Inter", "sans-serif";
-
-  --breakpoint-3xl: 1920px;
-
-  --color-brand-100: oklch(0.99 0 0);
-  --color-brand-200: oklch(0.98 0.04 113.22);
-  --color-brand-300: oklch(0.94 0.11 115.03);
-  --color-brand-400: oklch(0.92 0.19 114.08);
-  --color-brand-500: oklch(0.84 0.18 117.33);
-  --color-brand-600: oklch(0.53 0.12 118.34);
-
-  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
-  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
-}
-```
-
-### Dynamic Utilities
-
-Tailwind CSS 4 generates utilities on-demand without explicit configuration:
-
-```html
-<!-- Dynamic grid columns -->
-<div class="grid grid-cols-15">
-  <!-- 15 columns without configuration -->
-</div>
-
-<!-- Dynamic spacing -->
-<div class="p-[23px] m-[47px]">
-  <!-- Arbitrary values work seamlessly -->
-</div>
-
-<!-- Dynamic colors -->
-<div class="bg-[oklch(0.5_0.2_180)]">
-  <!-- Modern color spaces supported -->
-</div>
-```
-
-### Modern CSS Features Integration
-
-Leverage native cascade layers and modern CSS:
-
-```css
-@layer theme, base, components, utilities;
-
-@layer utilities {
-  .mx-6 {
-    margin-inline: calc(var(--spacing) * 6);
-  }
-  
-  .bg-brand-500\/50 {
-    background-color: color-mix(in oklab, var(--color-brand-500) 50%, transparent);
-  }
-}
-
-@property --tw-gradient-from {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #0000;
-}
-```
-
-### TypeScript Integration
-
-Enhanced TypeScript support with improved config:
-
-```typescript
-// tailwind.config.ts (if needed for legacy compatibility)
-import type { Config } from 'tailwindcss'
-
-export default {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-} satisfies Config
-```
-
-### Next.js Integration
-
-Configure PostCSS for Tailwind CSS 4:
-
-```javascript
-// postcss.config.mjs
-export default {
-  plugins: {
-    "@tailwindcss/postcss": {},
-    // postcss-import and autoprefixer no longer needed
-  },
-};
-```
-
-### Component Styling Patterns
-
-Use @utility for custom component styles:
-
-```css
-@utility btn {
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-@utility btn-primary {
-  background-color: var(--color-brand-500);
-  color: white;
-}
-
-@utility btn-primary:hover {
-  background-color: var(--color-brand-600);
-}
-```
-
-### Responsive Design with Container Queries
-
-Leverage the new container query support:
-
-```html
-<div class="@container">
-  <div class="grid grid-cols-3 @max-md:grid-cols-1">
-    <!-- Responsive based on container size, not viewport -->
-  </div>
-</div>
-```
-
-### Advanced Variant Composition
-
-Combine variants more flexibly:
-
-```html
-<div class="group">
-  <button class="group-has-[input:focus]:ring-2 group-hover:bg-gray-100">
-    <!-- Complex variant combinations -->
-  </button>
-</div>
-```
-
-### Animation and Transitions
-
-Use CSS variables for dynamic animations:
-
-```jsx
-// React component with dynamic CSS variables
-function AnimatedCard({ color, duration }) {
-  return (
-    <div
-      style={{
-        '--card-color': color,
-        '--duration': `${duration}ms`,
-      }}
-      className="bg-[--card-color] transition-all duration-[--duration] hover:scale-105"
-    >
-      Content
-    </div>
-  );
-}
-```
-
-### Starting State Animations
-
-Use the new `starting` variant for element appearance:
-
-```html
-<div 
-  popover="auto" 
-  class="transition-all duration-500 opacity-0 starting:opacity-0 [&:is([open],:popover-open)]:opacity-100"
->
-  <p>This animates smoothly when first displayed</p>
-</div>
-```
+## 🏗️ Architecture Decisions
+
+### Server Components (Default)
+- **Main page**: Server Component for optimal performance
+- **Static content**: Hero, services, features rendered server-side
+- **SEO optimized**: Better search engine indexing
+
+### Styling Approach
+- **Tailwind CSS 4**: CSS-first configuration with `@theme inline`
+- **CSS Variables**: Consistent theming with custom properties
+- **Dark Mode**: Automatic via `prefers-color-scheme: dark`
+- **No Config File**: Leveraging Tailwind CSS 4's dynamic utilities
 
 ### Performance Optimizations
+- **Font Loading**: Next.js optimized font loading with Geist
+- **Minimal Client Bundle**: Server Components reduce JavaScript payload
+- **Turbopack**: Fast development builds with Hot Module Replacement
 
-1. **Minimize CSS Bundle Size:**
-```css
-@import "tailwindcss" layer(utilities);
-/* Only import what you need */
-```
+## 🎯 Current Implementation Status
 
-2. **Use CSS Variables for Runtime Changes:**
-```javascript
-// Better performance than inline styles
-function ThemeProvider({ theme, children }) {
-  useEffect(() => {
-    document.documentElement.style.setProperty('--theme-primary', theme.primary);
-    document.documentElement.style.setProperty('--theme-secondary', theme.secondary);
-  }, [theme]);
+### ✅ Completed Features
+- [x] Professional hero section with AI Agency branding
+- [x] Services showcase (Custom AI Development, Process Automation, Data Intelligence)
+- [x] Feature highlights section with key benefits
+- [x] Contact section with direct engagement
+- [x] Responsive design across all screen sizes
+- [x] Dark mode support with smooth transitions
+- [x] SEO-optimized metadata and structure
+- [x] ESLint compliance and code quality
 
-  return children;
-}
-```
+### 🚧 Architecture Foundation
+- [x] Next.js 15 App Router setup
+- [x] React 19 with latest features ready
+- [x] Tailwind CSS 4 configuration
+- [x] TypeScript strict mode
+- [x] Design system documentation
 
-### Content Configuration
+## 🚀 Getting Started
 
-Optimize content scanning for better performance:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```javascript
-// tailwind.config.ts (if using legacy config)
-export default {
-  content: {
-    files: [
-      './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-      './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-      './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    ],
-    extract: {
-      // Custom extraction for special file types
-      tsx: (content) => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
-    },
-  },
-} satisfies Config
-```
+2. **Start development server:**
+   ```bash
+   npm run dev
+   ```
 
-### Logical Properties for Internationalization
+3. **Open in browser:**
+   ```
+   http://localhost:3000
+   ```
 
-Use logical properties for better i18n support:
+## 📝 Development Guidelines
 
-```html
-<div class="ms-4 me-6 ps-8 pe-10">
-  <!-- margin-inline-start, margin-inline-end, 
-       padding-inline-start, padding-inline-end -->
+### Component Creation
+- Default to **Server Components** for static content
+- Use **Client Components** (`'use client'`) only for interactivity
+- Follow established design patterns from the design system
+- Maintain consistent spacing and typography hierarchy
+
+### Styling Standards
+- Use semantic color tokens (`foreground`, `background`)
+- Follow responsive patterns with `sm:` breakpoints
+- Implement hover states for interactive elements
+- Maintain accessibility with proper contrast ratios
+
+### Code Quality
+- Run `npm run lint` before commits
+- Follow TypeScript strict mode guidelines
+- Use meaningful component and variable names
+- Document complex logic and architectural decisions
+
+## 📄 License
+
+This project is proprietary software for AI Agency. All rights reserved.
+
+---
+
+<div align="center">
+  <p><strong>AI Agency</strong> - Transforming businesses through intelligent automation and custom AI solutions.</p>
+  <p>Built with ❤️ using modern web technologies</p>
 </div>
-
-<div class="start-4 end-8">
-  <!-- inset-inline-start, inset-inline-end -->
-</div>
-```
-
-### Custom Variant Definitions
-
-Define reusable custom variants:
-
-```css
-@custom-variant supports-grid {
-  @supports (display: grid) {
-    @slot;
-  }
-}
-
-@custom-variant dark-high-contrast {
-  @media (prefers-color-scheme: dark) and (prefers-contrast: high) {
-    @slot;
-  }
-}
-```
-
-### Accessibility Best Practices
-
-Leverage forced-colors mode support:
-
-```html
-<input 
-  type="checkbox" 
-  class="appearance-none forced-colors:appearance-auto ring-2 ring-brand-500 forced-colors:ring-[Highlight]"
-/>
-```
-
-Use proper contrast utilities:
-
-```html
-<button class="bg-brand-500 text-white contrast-more:bg-brand-600 contrast-more:font-bold">
-  Accessible Button
-</button>
-```
-
-## Next.js App Router Best Practices
-
-This project uses Next.js 15 with the App Router architecture. Here are essential best practices to follow:
-
-### Server vs Client Component Patterns
-
-**Server Components (Default):**
-- Use for data fetching, static content, and performance-critical operations
-- Run on the server, reducing client bundle size
-
-```javascript
-// Server Component - async data fetching
-export default async function BlogPost({ params }) {
-  const { slug } = await params;
-  const post = await getPost(slug); // Direct server-side data fetching
-  
-  return (
-    <div>
-      <h1>{post.title}</h1>
-      <ClientLikeButton initialLikes={post.likes} />
-    </div>
-  );
-}
-```
-
-**Client Components:**
-- Use `'use client'` for interactivity, state, and browser APIs
-- Keep them focused and minimal
-
-```javascript
-'use client'
-
-import { useState } from 'react';
-
-export default function ClientLikeButton({ initialLikes }) {
-  const [likes, setLikes] = useState(initialLikes);
-  
-  return (
-    <button onClick={() => setLikes(likes + 1)}>
-      ❤️ {likes} likes
-    </button>
-  );
-}
-```
-
-### Layout and Page Organization
-
-**Root Layout (Required):**
-```javascript
-// app/layout.tsx
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
-    </html>
-  );
-}
-```
-
-**Nested Layouts:**
-```javascript
-// app/blog/layout.tsx
-export default function BlogLayout({ children }) {
-  return (
-    <div className="blog-container">
-      <BlogSidebar />
-      <main>{children}</main>
-    </div>
-  );
-}
-```
-
-### Data Fetching Best Practices
-
-**Server-side Data Fetching:**
-```javascript
-// Automatic caching by default
-async function getStaticData() {
-  const res = await fetch('https://api.example.com/data');
-  return res.json();
-}
-
-// Force dynamic (no cache)
-async function getDynamicData() {
-  const res = await fetch('https://api.example.com/data', { 
-    cache: 'no-store' 
-  });
-  return res.json();
-}
-```
-
-**Parallel Data Fetching:**
-```javascript
-export default async function Page() {
-  // Fetch data in parallel
-  const [posts, categories] = await Promise.all([
-    getPosts(),
-    getCategories()
-  ]);
-  
-  return <BlogContent posts={posts} categories={categories} />;
-}
-```
-
-### Dynamic Routing Patterns
-
-**Dynamic Segments:**
-```javascript
-// app/blog/[slug]/page.tsx
-export default async function PostPage({ params }) {
-  const { slug } = await params;
-  const post = await getPost(slug);
-  
-  return <PostContent post={post} />;
-}
-
-// Generate static params
-export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map(post => ({ slug: post.slug }));
-}
-```
-
-**Catch-all Routes:**
-```javascript
-// app/docs/[...segments]/page.tsx
-export default async function DocsPage({ params }) {
-  const { segments } = await params;
-  const path = segments.join('/');
-  
-  return <DocsContent path={path} />;
-}
-```
-
-### Performance Optimization
-
-**Bundle Optimization:**
-- Keep Client Components minimal
-- Use Server Components for static content
-- Wrap third-party components
-
-```javascript
-// Wrapper for third-party client components
-'use client'
-import { ExternalLibrary } from 'external-lib';
-export default ExternalLibrary;
-```
-
-**Strategic Component Boundaries:**
-```javascript
-// Server Component layout with selective client components
-export default function Layout({ children }) {
-  return (
-    <div>
-      <StaticHeader />           {/* Server Component */}
-      <InteractiveSearch />      {/* Client Component */}
-      <main>{children}</main>    {/* Server Component */}
-    </div>
-  );
-}
-```
-
-**Data Passing Patterns:**
-```javascript
-// Pass minimal data from Server to Client
-export default async function Page() {
-  const fullUserData = await getUser();
-  
-  // Only pass what the client needs
-  return <UserProfile 
-    name={fullUserData.name} 
-    avatar={fullUserData.avatar}
-  />;
-}
-```
-
-### Navigation Best Practices
-
-**Client-side Navigation:**
-```javascript
-'use client'
-import { useRouter, usePathname } from 'next/navigation';
-
-export default function NavigationComponent() {
-  const router = useRouter();
-  const pathname = usePathname();
-  
-  const handleNavigation = () => {
-    router.push('/dashboard');
-  };
-  
-  return (
-    <nav>
-      <button 
-        onClick={handleNavigation}
-        className={pathname === '/dashboard' ? 'active' : ''}
-      >
-        Dashboard
-      </button>
-    </nav>
-  );
-}
-```
-
-**Link Prefetching:**
-```javascript
-import Link from 'next/link';
-
-export default function Navigation() {
-  return (
-    <Link href="/dashboard" prefetch={true}>
-      Dashboard (prefetched)
-    </Link>
-  );
-}
-```
