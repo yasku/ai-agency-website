@@ -1,7 +1,7 @@
 // Constants for AI Agency project
 // Following established design patterns and business requirements
 
-import { ServiceData, ProcessStepData } from './types';
+import { ServiceData, ProcessStepData } from '@/lib/types';
 
 // Core AI services offered by the agency
 export const AI_SERVICES: ServiceData[] = [

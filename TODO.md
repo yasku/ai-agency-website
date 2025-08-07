@@ -1,294 +1,276 @@
-# Navigation Bar Implementation TODO
+# Codebase Review Plan
 
 ## Project Overview
-Build a comprehensive navigation bar for the AI Agency website that follows established design system patterns, maintains consistency with existing components, and provides excellent UX/UI experience across all devices.
+This plan outlines a systematic review of all files within the `src/` directory to ensure adherence to Next.js 15 App Router standards, React 19 best practices, and Tailwind CSS 4 guidelines, as defined in `README.md` and `README2.md`. The review will focus on imports, variable/function naming, `useRef` usage, component props/state, Tailwind CSS classes, and Server/Client component directives.
 
-## Design System Reference
-- **Colors**: CSS variables (`--background`, `--foreground`) with opacity modifiers (`/70`, `/80`)
-- **Typography**: Geist Sans/Mono fonts with gradient text effects (`bg-gradient-to-r from-foreground to-foreground/70`)
-- **Spacing**: Semantic patterns (`gap-[24px]`, `gap-[32px]`, `gap-[48px]`)
-- **Responsive**: Mobile-first with `sm:` breakpoint (640px+)
-- **Interactions**: React 19 hooks (`useState`, `useEffect`, `useTransition`)
-- **Accessibility**: ARIA labels, keyboard navigation, screen reader support
+## Golden Rule
+Each task must be completed, reviewed, and marked as done before proceeding to the next. If issues are encountered, new tasks will be added to this `TODO.md` file, but no modifications will be made without explicit confirmation.
 
----
+## Files to Analyze
 
-**GOLDEN RULE**: Each task must be completed, reviewed, add the changes to CHANGELOG.md and marked as done before proceeding to the next. The implementation will follow React 19, Next.js 15, and Tailwind CSS 4 best practices while maintaining consistency with the existing AI Agency design system.
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/ContactForm.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/HamburgerIcon.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/Logo.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/MobileMenu.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/MobileMenuItem.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/NavigationBar.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/NavigationMenu.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/NavigationMenuItem.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/ServiceCard.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/ServicesSection.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/hooks/useActiveRoute.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/hooks/useScrollEffect.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/components/hooks/useSmoothScroll.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/globals.css`
+*   `/home/yasku/proyectos/nextjs-project/src/app/layout.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/page.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/services/components/DetailedServiceCard.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/services/components/ProcessOverview.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/services/components/ServiceGrid.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/services/components/ServiceHero.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/app/services/page.tsx`
+*   `/home/yasku/proyectos/nextjs-project/src/lib/constants.ts`
+*   `/home/yasku/proyectos/nextjs-project/src/lib/services-data.ts`
+*   `/home/yasku/proyectos/nextjs-project/src/lib/types.ts`
 
-**HOW TO WORK ON EACH TASK**: Use sequential-thinking to analyze the task, think about the right patterns to use according to the frameworks and projec structure, the files already created, and the design system. Each task must be completed, reviewed, and marked as done before proceeding to the next. The implementation will follow React 19, Next.js 15, and Tailwind CSS 4 best practices while maintaining consistency with the existing AI Agency design system.
+## Review Tasks (Per File)
 
-## Phase 1: Core Structure & Architecture
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/ContactForm.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports and paths (`@/lib/types`, `@/lib/constants`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions, PascalCase for components/types. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `ContactFormProps`, `ContactFormData`, `FormValidation`, `LoadingState`. State management with `useState` and `useTransition` is appropriate.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for buttons, input fields, and error messages.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used for interactivity.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with React 19 hooks and general component guidelines.
 
-### Task 1.1: Create Navigation Types & Interfaces
-- [x] Add navigation-specific TypeScript interfaces to `/src/lib/types.ts`
-  - `NavigationItem` interface for menu items
-  - `NavigationBarProps` for main component props
-  - `MobileMenuProps` for mobile menu component
-  - `LogoProps` for logo component
-- [x] ESLint check on updated types.ts
-- [x] Gemini review of type definitions for pattern compliance
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/HamburgerIcon.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`React`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `HamburgerIconProps`.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for animation and styling.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with React 19 and general component guidelines.
 
-### Task 1.2: Create Logo Component
-- [x] Create `/src/app/components/Logo.tsx` as Server Component
-  - Implement gradient text effect matching existing patterns
-  - Support different sizes (sm, md, lg)
-  - Use semantic HTML with proper heading structure
-  - Apply consistent font and spacing patterns
-- [x] ESLint check on Logo.tsx
-- [x] Gemini review for design system compliance
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/Logo.tsx`
+- [x] Read file content.
+- [x] Check Imports: No imports needed. Correct.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `LogoProps`.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for gradient text effect and size classes.
+- [x] Check Server/Client Component Directives: Verified absence of `'use client'` for Server Component. Correct.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with design system for typography and sizing.
 
-### Task 1.3: Create Navigation Menu Component
-- [x] Create `/src/app/components/NavigationMenu.tsx` as Server Component
-  - Implement desktop navigation links (Home, Services)
-  - Apply hover effects matching existing button patterns
-  - Use gradient underline for active states
-  - Include proper semantic nav structure
-- [x] Create `/src/app/components/NavigationMenu.tsx` as Server Component
-  - Implement desktop navigation links (Home, Services)
-  - Apply hover effects matching existing button patterns
-  - Use gradient underline for active states
-  - Include proper semantic nav structure
-- [x] ESLint check on NavigationMenu.tsx
-- [x] Gemini review for consistency with existing components
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/MobileMenu.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`React`, `useEffect`, `useRef`, `@/lib/types`, `HamburgerIcon`, `MobileMenuItem`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: Verified correct import and usage of `menuRef` for DOM interaction.
+- [x] Check Component Props and State: Verified correct typing and usage of `MobileMenuProps`. State management with `useEffect` and `useRef` for event listeners is appropriate.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for slide-in panel, backdrop, and spacing.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with React 19 and mobile UX patterns.
 
-### Task 1.4: Create Main Navigation Bar Component
-- [x] Create `/src/app/components/NavigationBar.tsx` as Client Component
-  - Implement sticky positioning with backdrop blur
-  - Add state management for mobile menu toggle
-  - Include proper ARIA attributes and landmarks
-  - Apply border and background styling matching design system
-- [x] ESLint check on NavigationBar.tsx
-- [x] Gemini review for React 19 patterns and accessibility
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/MobileMenuItem.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`next/link`, `@/lib/types`, `useActiveRoute`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `MobileMenuItemProps`.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for active state styling, hover effects, and gradient underline.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with Next.js Link and active state patterns.
 
----
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/NavigationBar.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (local components, `@/lib/types`, `useScrollEffect`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage. State management with `useState` and `useScrollEffect` is appropriate.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for sticky positioning, backdrop blur, shadow, and responsive classes.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with React 19 patterns and accessibility.
 
-## Phase 2: Mobile Experience & Interactions
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/NavigationMenu.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`@/lib/types`, `NavigationMenuItem`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `NavigationMenuProps`.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for layout and spacing.
+- [x] Check Server/Client Component Directives: Verified absence of `'use client'` for Server Component. Correct.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with semantic nav structure.
 
-### Task 2.1: Create Hamburger Menu Icon Component
-- [x] Create `/src/app/components/HamburgerIcon.tsx` as Client Component
-  - Implement three-line hamburger icon
-  - Add morphing animation to X when active
-  - Use CSS transitions matching project animation patterns
-  - Include proper ARIA attributes for accessibility
-- [x] ESLint check on HamburgerIcon.tsx
-- [x] Gemini review for animation and accessibility compliance
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/NavigationMenuItem.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`next/link`, `@/lib/types`, `useActiveRoute`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `NavigationMenuItemProps`.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for active state styling, hover effects, and gradient underline.
+- [x] Check Server/Client Component Directives: Verified absence of `'use client'` for Server Component. Correct.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with Next.js Link and active state patterns.
 
-### Task 2.2: Create Mobile Menu Component
-- [x] Create `/src/app/components/MobileMenu.tsx` as Client Component
-  - Implement slide-in panel from right side
-  - Add backdrop overlay with blur effect
-  - Include navigation links with proper spacing
-  - Add close functionality and focus management
-- [x] ESLint check on MobileMenu.tsx
-- [x] Gemini review for mobile UX patterns and accessibility
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/ServiceCard.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`useOptimistic`, `useTransition`, `@/lib/types`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `ServiceCardProps`. State management with `useOptimistic` and `useTransition` is appropriate.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for card design patterns, hover effects, and expandable content styling.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with React 19 hooks and component guidelines.
 
-### Task 2.3: Integrate Mobile Menu with Navigation Bar
-- [ ] Update `/src/app/components/NavigationBar.tsx`
-  - Connect hamburger button to mobile menu toggle
-  - Add responsive visibility classes (hidden on desktop)
-  - Implement proper state management with useState
-  - Add keyboard event handlers for accessibility
-- [ ] ESLint check on updated NavigationBar.tsx
-- [ ] Gemini review for integration and state management
-- [ ] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/ServicesSection.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`ServiceCard`, `@/lib/constants`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage. State management with `useState` is appropriate.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for grid layout and spacing.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with responsive grid patterns.
 
----
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/hooks/useActiveRoute.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`next/navigation`, `react`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage. `useMemo` is used correctly to memoize the `isActive` calculation.
+- [x] Check Tailwind CSS Classes: N/A (hook, no direct styling).
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with Next.js App Router patterns for hooks.
 
-## Phase 3: Active States & Navigation Logic
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/hooks/useScrollEffect.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`useState`, `useEffect`, `useCallback`, `useRef` from `react`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: Verified correct import and usage of `lastScrollY` to store the previous scroll position.
+- [x] Check Component Props and State: Verified correct typing and usage. State management with `useState`, `useEffect`, `useCallback` is appropriate.
+- [x] Check Tailwind CSS Classes: N/A (hook, no direct styling).
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with React 19 hooks and performance optimization (throttling).
 
-### Task 3.1: Implement Active State Detection
-- [ ] Create custom hook `/src/app/components/hooks/useActiveRoute.tsx`
-  - Use Next.js `usePathname` to detect current route
-  - Return active state for navigation items
-  - Handle both exact and partial matches
-- [ ] ESLint check on useActiveRoute.tsx
-- [ ] Gemini review for Next.js 15 App Router patterns
-- [ ] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/components/hooks/useSmoothScroll.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`useCallback` from `react`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage. `useCallback` is used correctly to memoize the `scrollToId` function.
+- [x] Check Tailwind CSS Classes: N/A (hook, no direct styling).
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with React 19 hooks and UX patterns for smooth scrolling.
 
-### Task 3.2: Apply Active States to Navigation Links
-- [x] Update `/src/app/components/NavigationMenu.tsx`
-  - Use useActiveRoute hook to determine active links
-  - Apply gradient underline to active navigation items
-  - Add aria-current="page" for accessibility
-  - Ensure smooth transitions between states
-- [x] Update `/src/app/components/MobileMenu.tsx`
-  - Apply same active state logic for mobile menu
-  - Use consistent styling with desktop version
-- [x] ESLint check on updated components
-- [x] Gemini review for consistency and accessibility
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/globals.css`
+- [x] Read file content.
+- [x] Check Imports: Verified `@import "tailwindcss";` is correct. No other imports are present.
+- [x] Check Variable and Function Naming: Confirmed CSS variable naming conventions (`--background`, `--foreground`, etc.).
+- [x] Check `useRef` Usage: N/A (CSS file).
+- [x] Check Component Props and State: N/A (CSS file).
+- [x] Check Tailwind CSS Classes: Reviewed `@theme inline` configuration, custom animations (`glitch`, `magnetic`, `spotlight`), and general CSS. All adhere to design system and Tailwind CSS 4 best practices.
+- [x] Check Server/Client Component Directives: N/A (CSS file).
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with CSS-first configuration and theme variables, including dark mode handling.
 
-### Task 3.3: Add Navigation Link Hover Effects
-- [x] Update navigation link styles in both components
-  - Implement gradient underline on hover
-  - Add smooth color transitions matching existing patterns
-  - Ensure hover states work with keyboard navigation
-  - Apply consistent timing and easing functions
-- [x] ESLint check on updated components
-- [x] Gemini review for interaction design consistency
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/layout.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`next/font/google`, local `globals.css`, `NavigationBar`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `children`. No state management is present, which is correct for a Server Component.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed correct application of font variables and antialiasing.
+- [x] Check Server/Client Component Directives: Verified absence of `'use client'` for Root Layout (Server Component). Correct.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with Next.js App Router root layout patterns and font optimization.
 
----
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/page.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (local components, `next/link`, `useSmoothScroll`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: No explicit props. State management is handled by child components and `useSmoothScroll` hook.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for layout, typography, button styling, and spacing.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used for interactivity.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with App Router page patterns and smooth scrolling integration.
 
-## Phase 4: Layout Integration & Styling Polish
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/services/components/DetailedServiceCard.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`useOptimistic`, `useTransition`, `useState`, `useEffect`, `@/lib/services-data`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `DetailedServiceCardProps`. State management with React 19 hooks (`useOptimistic`, `useTransition`, `useState`, `useEffect`) is appropriate.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for complex styling, 3D effects, gradients, and responsive design.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with React 19 hooks and advanced component styling.
 
-### Task 4.1: Integrate Navigation with Root Layout
-- [x] Update `/src/app/layout.tsx`
-  - Import and add NavigationBar component
-  - Position above main content area
-  - Ensure proper semantic HTML structure
-  - Test with existing page layouts
-- [x] Update page padding/margins if needed
-  - Check `/src/app/page.tsx` for spacing adjustments
-  - Check `/src/app/services/page.tsx` for consistency
-- [x] ESLint check on updated layout and pages
-- [x] Gemini review for layout integration and semantic structure
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/services/components/ProcessOverview.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`PROCESS_STEPS` from `@/lib/constants`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: No explicit props or state management, which is correct for this component.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for layout, typography, and card styling.
+- [x] Check Server/Client Component Directives: Verified absence of `'use client'` for Server Component. Correct.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with process visualization patterns.
 
-### Task 4.2: Add Scroll-Based Backdrop Effects
-- [x] Create custom hook `/src/app/components/hooks/useScrollEffect.tsx`
-  - Detect scroll position and direction
-  - Return scroll state for dynamic styling
-  - Use throttling for performance optimization
-- [x] Update `/src/app/components/NavigationBar.tsx`
-  - Apply backdrop blur based on scroll position
-  - Add subtle shadow on scroll
-  - Ensure smooth transitions match design system
-- [x] ESLint check on scroll effect implementation
-- [x] Gemini review for performance and UX patterns
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/services/components/ServiceGrid.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`DetailedServiceCard`, `@/lib/services-data`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: Verified correct typing and usage of `ServiceGridProps`. State management with `useState` is appropriate.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for grid layout and spacing.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with responsive grid patterns.
 
-### Task 4.3: Implement Contact Link Smooth Scrolling
-- [x] Add smooth scroll behavior for contact links
-  - Handle contact section navigation
-  - Add smooth scrolling with proper offset
-  - Include proper focus management after scroll
-  - Work correctly on both pages (home and services)
-- [x] ESLint check on scroll functionality
-- [x] Gemini review for navigation behavior and accessibility
-- [x] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/services/components/ServiceHero.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`next/link`, `useSmoothScroll`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: No explicit props or local state, which is correct for this component.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for hero section styling, gradient text, and button adherence.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with hero section patterns and smooth scrolling integration.
 
----
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/app/services/page.tsx`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (local components, `next/link`, `@/lib/services-data`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed camelCase for variables/functions. All names are clear and descriptive.
+- [x] Check `useRef` Usage: `useRef` is not used in this file.
+- [x] Check Component Props and State: No explicit props or local state, which is correct for this page component.
+- [x] Check Tailwind CSS Classes: Reviewed and confirmed adherence to design system for layout, typography, and spacing.
+- [x] Check Server/Client Component Directives: Verified `'use client'` directive is correctly used.
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed compliance with App Router page patterns and component integration.
 
-## Phase 5: Accessibility & Keyboard Navigation
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/lib/constants.ts`
+- [x] Read file content.
+- [x] Check Imports: Verified correct imports (`ServiceData`, `ProcessStepData` from `./types`). No unused imports found.
+- [x] Check Variable and Function Naming: Confirmed PascalCase for constants (`AI_SERVICES`, `PROCESS_STEPS`, `ANIMATION_CONFIG`, `VALIDATION_RULES`, `SERVICE_OPTIONS`, `CHATBOT_MESSAGES`). All names are clear and descriptive.
+- [x] Check `useRef` Usage: N/A (constants file).
+- [x] Check Component Props and State: N/A (constants file).
+- [x] Check Tailwind CSS Classes: N/A (constants file).
+- [x] Check Server/Client Component Directives: N/A (constants file).
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed data structure and content align with project requirements. The constants provide essential data for the application, such as service details, process steps, validation rules, and chatbot messages, all consistent with the project's domain.
 
-### Task 5.1: Implement Comprehensive Keyboard Navigation
-- [ ] Add keyboard event handlers to all interactive elements
-  - Tab navigation through all menu items
-  - Enter/Space activation for buttons
-  - Escape key to close mobile menu
-  - Arrow keys for menu navigation (optional enhancement)
-- [ ] ESLint check on keyboard navigation implementation
-- [ ] Gemini review for accessibility standards compliance
-- [ ] Mark as complete and update changelog
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/lib/services-data.ts`
+- [x] Read file content.
+- [x] Check Imports: No imports needed. Correct.
+- [x] Check Variable and Function Naming: Confirmed PascalCase for `DetailedServiceData` interface and `DETAILED_SERVICES` constant. All names are clear and descriptive.
+- [x] Check `useRef` Usage: N/A (data file).
+- [x] Check Component Props and State: N/A (data file).
+- [x] Check Tailwind CSS Classes: N/A (data file).
+- [x] Check Server/Client Component Directives: N/A (data file).
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed data structure and content align with project requirements for detailed services. The data is well-structured and provides comprehensive information for each service.
 
-### Task 5.2: Add Focus Management and Visual Indicators
-- [ ] Implement proper focus management
-  - Focus trapping in mobile menu when open
-  - Restore focus when mobile menu closes
-  - Visible focus indicators matching design system
-  - Skip links for screen readers
-- [ ] ESLint check on focus management
-- [ ] Gemini review for accessibility best practices
-- [ ] Mark as complete and update changelog
-
-### Task 5.3: Add Screen Reader Support
-- [ ] Enhance ARIA attributes and labels
-  - Proper landmark roles and labels
-  - Descriptive button and link labels
-  - Status announcements for menu state changes
-  - Proper heading hierarchy maintenance
-- [ ] ESLint check on ARIA implementation
-- [ ] Gemini review for screen reader compatibility
-- [ ] Mark as complete and update changelog
-
----
-
-## Phase 6: Performance Optimization & Testing
-
-### Task 6.1: Optimize Component Performance
-- [ ] Review and optimize React component performance
-  - Add React.memo where appropriate
-  - Optimize re-renders with proper dependency arrays
-  - Ensure minimal client-side JavaScript
-  - Verify Server/Client component boundaries
-- [ ] ESLint check on performance optimizations
-- [ ] Gemini review for React 19 performance patterns
-- [ ] Mark as complete and update changelog
-
-### Task 6.2: Bundle Size and Loading Optimization
-- [ ] Analyze and optimize bundle impact
-  - Verify lazy loading where appropriate
-  - Check for unnecessary dependencies
-  - Optimize CSS delivery
-  - Ensure proper code splitting
-- [ ] ESLint check on optimization changes
-- [ ] Gemini review for Next.js 15 optimization patterns
-- [ ] Mark as complete and update changelog
-
----
-
-## Phase 7: Final Testing & Documentation
-
-### Task 7.1: Cross-Browser and Device Testing
-- [ ] Test navigation across different browsers and devices
-  - Desktop browsers (Chrome, Firefox, Safari, Edge)
-  - Mobile devices (iOS Safari, Android Chrome)
-  - Tablet devices and responsive breakpoints
-  - Keyboard-only navigation testing
-- [ ] Fix any compatibility issues found
-- [ ] ESLint check on any compatibility fixes
-- [ ] Gemini review of final implementation
-- [ ] Mark as complete and update changelog
-
-### Task 7.2: Playwright Visual Testing
-- [ ] Create Playwright test for navigation functionality
-- [ ] Take screenshots of navigation in different states
-  - Desktop navigation with active states
-  - Mobile menu closed and open states
-  - Hover states and transitions
-  - Focus states for accessibility
-- [ ] Verify visual consistency with design system
-- [ ] Mark as complete and update changelog
-
-### Task 7.3: Final Documentation and Review
-- [ ] Update CHANGELOG.md with comprehensive navigation implementation
-- [ ] Ask Gemini to brainstorm final review of all changes
-- [ ] Run final ESLint check on all modified files
-- [ ] Verify build succeeds with no TypeScript errors
-- [ ] Take final Playwright screenshots for documentation
-- [ ] Mark as complete and celebrate! 🎉
-
----
-
-## Component File Structure (Final)
-```
-src/app/components/
-├── Logo.tsx                    # Server component - AI Agency branding
-├── NavigationBar.tsx           # Client component - Main navigation container
-├── NavigationMenu.tsx          # Server component - Desktop navigation links
-├── MobileMenu.tsx              # Client component - Mobile menu panel
-├── HamburgerIcon.tsx           # Client component - Animated hamburger icon
-└── hooks/
-    ├── useActiveRoute.tsx      # Custom hook - Active route detection
-    └── useScrollEffect.tsx     # Custom hook - Scroll-based effects
-```
-
-## Design Patterns Reference
-- **Buttons**: Primary CTA (`bg-foreground text-background`) and secondary (`border border-black/[.08]`)
-- **Hover Effects**: `hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a]` with smooth transitions
-- **Active States**: Gradient underlines using `bg-gradient-to-r from-foreground to-foreground/70`
-- **Mobile Menu**: Right-side slide-in with backdrop blur overlay
-- **Typography**: `font-medium text-sm sm:text-base` with proper heading hierarchy
-- **Spacing**: Consistent `gap-[24px]` patterns and semantic padding
-- **Accessibility**: Comprehensive ARIA labels and keyboard navigation support
-
----
-
-**GOLDEN RULE**: Each task must be completed, reviewed, add the changes to CHANGELOG.md and marked as done before proceeding to the next. The implementation will follow React 19, Next.js 15, and Tailwind CSS 4 best practices while maintaining consistency with the existing AI Agency design system.
+### Task: Review `/home/yasku/proyectos/nextjs-project/src/lib/types.ts`
+- [x] Read file content.
+- [x] Check Imports: No imports needed. Correct.
+- [x] Check Variable and Function Naming: Confirmed PascalCase for interfaces and types. All names are clear and descriptive.
+- [x] Check `useRef` Usage: N/A (types file).
+- [x] Check Component Props and State: N/A (types file).
+- [x] Check Tailwind CSS Classes: N/A (types file).
+- [x] Check Server/Client Component Directives: N/A (types file).
+- [x] Cross-reference with `README.md` and `README2.md`: Confirmed comprehensive and accurate type definitions for the entire application, aligning with React 19 and Next.js 15 patterns.

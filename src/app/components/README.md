@@ -70,16 +70,33 @@ export default function ServiceCard({ service }: ServiceCardProps) {
 ## Available Components
 
 ### Core Components
-- `ServiceCard.tsx` - Interactive service showcase cards
-- `ContactForm.tsx` - Enhanced contact form with validation
-- `ProcessTimeline.tsx` - Step-by-step process visualization
+- `ContactForm.tsx` - Client Component: Handles contact form logic, state, and validation.
+- `Logo.tsx` - Component: Displays the "AI Agency" logo with size variations.
+- `NavigationBar.tsx` - Client Component: Main navigation bar, includes Logo and NavigationMenu.
+- `NavigationMenu.tsx` - Component: Renders navigation links.
+- `ServiceCard.tsx` - Client Component: Displays individual service details with expand/collapse functionality.
+- `ServicesSection.tsx` - Client Component: Renders a grid of ServiceCard components.
+
+### Navigation Components (Client Components)
+- `HamburgerIcon.tsx` - Toggles mobile menu visibility.
+- `MobileMenu.tsx` - Full-screen overlay for mobile navigation.
+- `MobileMenuItem.tsx` - Individual navigation link within the mobile menu.
+- `NavigationMenuItem.tsx` - Individual navigation link for desktop menu.
+
+### Hooks
+- `useActiveRoute.tsx` - Determines if a navigation link is active based on the current route.
+- `useScrollEffect.tsx` - Tracks scroll position and direction for UI effects.
+- `useSmoothScroll.tsx` - Provides a utility function for smooth scrolling to an element by ID.
+
+### Other Components (Not yet implemented or in other directories)
+- `ProcessTimeline.tsx` - Step-by-step process visualization (found in `src/app/services/components/ProcessOverview.tsx`)
 - `SuccessStory.tsx` - Client success story showcase
 - `AIChatbot.tsx` - Floating AI assistance chatbot
 
-### Utility Components
-- Form validation helpers
-- Animation utilities
-- Type definitions
+### Utility Files (Located in `src/lib/`)
+- Type definitions (`src/lib/types.ts`)
+- Constants (`src/lib/constants.ts`)
+- Services Data (`src/lib/services-data.ts`)
 
 ## Development Workflow
 

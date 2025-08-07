@@ -1,9 +1,9 @@
 'use client'
 
-import ServicesSection from './components/ServicesSection';
-import ContactForm from './components/ContactForm';
+import ServicesSection from '@/app/components/ServicesSection';
+import ContactForm from '@/app/components/ContactForm';
 import Link from 'next/link';
-import { useSmoothScroll } from './components/hooks/useSmoothScroll';
+import { useSmoothScroll } from '@/app/components/hooks/useSmoothScroll';
 
 export default function Home() {
   const scrollToId = useSmoothScroll();

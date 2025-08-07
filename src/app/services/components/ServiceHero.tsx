@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import { useSmoothScroll } from '../hooks/useSmoothScroll';
+import { useSmoothScroll } from '@/app/components/hooks/useSmoothScroll';
 
 export default function ServiceHero() {
   const scrollToId = useSmoothScroll();
